@@ -7,8 +7,10 @@ export async function sendMessage(message: string): Promise<string> {
     if (!DEEPSEEK_API_KEY) {
       throw new Error('Missing API key. Please check your .env file.');
     }
+
+    const timeout = 60000;
     
-    const response = await fetch(`${DEEPSEEK_API_URL}/chat/completions`, {
+    const fetchPromise = fetch(`${DEEPSEEK_API_URL}/chat/completions`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -23,6 +25,12 @@ export async function sendMessage(message: string): Promise<string> {
         stream: false
       })
     });
+
+    const timeoutPromise = new Promise<never>((_, reject) =>
+      setTimeout(() => reject(new Error('Request timed out')), timeout)
+    );
+
+    const response = await Promise.race([fetchPromise, timeoutPromise]);
 
     if (!response.ok) {
       const errorText = await response.text();
