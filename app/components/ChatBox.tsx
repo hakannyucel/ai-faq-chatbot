@@ -78,7 +78,7 @@ export default function ChatBox() {
       </div>
       
       {/* Message Area */}
-      <div className="flex-1 overflow-auto p-3 bg-white">
+      <div className="flex-1 overflow-scroll p-3 bg-white">
         <MessageList messages={messages} />
         <div ref={messagesEndRef} />
       </div>
