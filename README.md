@@ -1,36 +1,144 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI FAQ Chatbot
+
+An interactive AI-powered chatbot for answering frequently asked questions. This project combines modern web technologies with AI to create a seamless user experience for getting quick and accurate answers.
+
+![AI FAQ Chatbot](https://via.placeholder.com/1200x630/4F46E5/FFFFFF?text=AI+FAQ+Chatbot)
+
+## Features
+
+- 🤖 AI-powered responses using the Deepseek API
+- 💬 Real-time chat interface
+- 📱 Responsive design for all devices
+- 🔧 Admin dashboard for FAQ management
+- 📊 Clean and intuitive user interface
+- 🔒 Secure processing of user queries
+
+## Tech Stack
+
+- **Next.js** - React framework for server-side rendering and static site generation
+- **React** - JavaScript library for building user interfaces
+- **TypeScript** - Typed superset of JavaScript
+- **Deepseek API** - Natural language processing capabilities
+- **CSS** - For styling components and layouts
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18.x or later
+- npm or yarn package manager
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/hakannyucel/ai-faq-chatbot.git
+cd ai-faq-chatbot
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Create a `.env.local` file in the root directory with your Deepseek API key:
+
+```
+DEEPSEEK_API_KEY=your_api_key_here
+```
+
+4. Start the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+ai-faq-chatbot/
+│
+├── app/                     # Application source code
+│   ├── components/          # Reusable React components
+│   │   ├── ChatBox.tsx      # Main chat container
+│   │   ├── MessageList.tsx  # Display for chat messages
+│   │   ├── MessageInput.tsx # User input component
+│   │   ├── Header.tsx       # Site header component
+│   │   └── Footer.tsx       # Site footer component
+│   │
+│   ├── services/            # API and business logic
+│   │   └── chatService.ts   # Service for interacting with Deepseek API
+│   │
+│   ├── types/               # TypeScript type definitions
+│   │   └── chat.ts          # Types for chat functionality
+│   │
+│   ├── pages/               # Page components
+│   │
+│   ├── styles/              # Global and component-specific styles
+│   │
+│   └── utils/               # Utility functions and helpers
+│
+├── public/                  # Static assets
+│
+└── docs/                    # Documentation files
+```
 
-## Learn More
+## Usage
 
-To learn more about Next.js, take a look at the following resources:
+### User Side
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Visit the homepage to interact with the AI chatbot.
+2. Type your question in the input field and press Enter or click the send button.
+3. Receive an instant AI-generated response.
+4. Continue the conversation with follow-up questions.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Admin Side
 
-## Deploy on Vercel
+1. Navigate to `/admin` to access the dashboard.
+2. Add new FAQ entries with questions and answers.
+3. Edit or delete existing FAQs.
+4. Updates are reflected immediately in the chatbot's knowledge base.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This application can be easily deployed on platforms like Vercel, Netlify, or any other hosting service that supports Next.js applications.
+
+```bash
+# Build for production
+npm run build
+# or
+yarn build
+
+# Start production server
+npm start
+# or
+yarn start
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- The Deepseek team for providing the AI API
+- Next.js team for the amazing framework
+- All contributors and supporters of the project
